@@ -21,15 +21,17 @@ def getImperdietCounts(file):
   imperdietCounts = {"numLinesWithImperdiet": numLinesWithImperdiet, "numImperdietInFile": numImperdietInFile}
   return imperdietCounts
   
+def outputImperdietCounts(imperdietCounts):
+  print("number of lines with imperdiet: ", imperdietCounts["numLinesWithImperdiet"])
+  print("number of times imperdiet appears: ", imperdietCounts["numImperdietInFile"])  
+  
 def readFile():
   
   fileSource = input("What is the destination of the file you'd like to read?")
   file = open(fileSource, "r")
   fileText = file.read()
   imperdietCounts = getImperdietCounts(fileText)
-
-  print("number of lines with imperdiet: ", imperdietCounts["numLinesWithImperdiet"])
-  print("number of times imperdiet appears: ", imperdietCounts["numImperdietInFile"])
+  outputImperdietCounts(imperdietCounts)
   
 def getNumSentencesInFile(text):
   sentences = text.split(".")
@@ -44,8 +46,9 @@ def writeFile():
   userSentences = input("Type senetences.  When your heart is content hit return to submit your sentences.")
   file.write(userSentences)
   numSentences = getNumSentencesInFile(userSentences)
-  print(getImperdietCounts(userSentences))
-  print(numSentences)
+  imperdietCounts = getImperdietCounts(userSentences)
+  outputImperdietCounts(imperdietCounts)
+  print("The number of sentences your wrote is: ", numSentences)
   
   
 def readOrWritePrompt():
