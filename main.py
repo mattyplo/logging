@@ -26,29 +26,26 @@ def readFile():
   fileSource = input("What is the destination of the file you'd like to read?")
   file = open(fileSource, "r")
   fileText = file.read()
-#  sentences = fileText.split(".")
-#  numLinesWithImperdiet = 0
-#  numImperdietInFile = 0
-#  for sentence in sentences:
-#    numImperdietInSentence = countImperdietInSentence(sentence)
-#    numImperdietInFile += numImperdietInSentence
-#    if numImperdietInSentence > 0:
-#      numLinesWithImperdiet += 1
   imperdietCounts = getImperdietCounts(fileText)
 
   print("number of lines with imperdiet: ", imperdietCounts["numLinesWithImperdiet"])
   print("number of times imperdiet appears: ", imperdietCounts["numImperdietInFile"])
   
+def getNumSentencesInFile(text):
+  sentences = text.split(".")
+  # must subtract one from length of sentences, since the split occurs before and after the period.  The last split will be empty text, which isn't a sentence.
+  numSentences = len(sentences) - 1
+  return numSentences
+
 def writeFile():
   
   fileSource = input("What is the destination of the file you'd like to write to?")
   file = open(fileSource, "w")
   userSentences = input("Type senetences.  When your heart is content hit return to submit your sentences.")
   file.write(userSentences)
-  sentences = userSentences.split(".")
-  # must subtract one from length of sentences, since the split occurs before and after the period.  The last split will be empty text, which isn't a sentence.
-  numSentences = len(sentences) - 1
+  numSentences = getNumSentencesInFile(userSentences)
   print(getImperdietCounts(userSentences))
+  print(numSentences)
   
   
 def readOrWritePrompt():
