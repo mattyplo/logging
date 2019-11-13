@@ -26,13 +26,18 @@ def readFile():
   print("number of lines with imperdiet: ", numLinesWithImperdiet)
   print("number of times imperdiet appears: ", numImperdietInFile)
   
+def writeFile():
+  
+  fileSource = input("What is the destination of the file you'd like to write to?")
+  file = open(fileSource, "w")
+
 def readOrWritePrompt():
   
   readWriteChoice = input("Would you like to read a file or write to a file?\nType r to read, or type w to write. ")
   if readWriteChoice is 'r':
     readFile()
   elif readWriteChoice is 'w':
-    print("write")
+    writeFile()
   else: 
     print("I'm sorry, but you must select w or r to move forward with this program.  Try starting the program over.")
 
