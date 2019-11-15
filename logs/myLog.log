@@ -1,2 +1,13 @@
 2019-11-15 09:47:07,374 - DEBUG - readFile Function
 2019-11-15 09:47:15,329 - DEBUG - readFile Function
+2019-11-15 09:51:16,912 - DEBUG - readWriteChoice Input
+2019-11-15 09:51:16,912 - DEBUG - readFile Function
+2019-11-15 09:51:20,551 - DEBUG - readFile Function
+2019-11-15 09:53:44,689 - INFO - program started
+2019-11-15 09:53:49,933 - DEBUG - readWriteChoice Input
+2019-11-15 09:54:05,618 - INFO - program finished
+2019-11-15 09:55:06,955 - INFO - program started
+2019-11-15 09:55:08,627 - DEBUG - readWriteChoice user Input = r
+2019-11-15 09:55:08,627 - DEBUG - readFile Function
+2019-11-15 09:55:14,851 - DEBUG - readFile Function
+2019-11-15 09:55:14,851 - INFO - program finished

@@ -72,6 +72,7 @@ def writeFile():
 def readOrWritePrompt():
   
   readWriteChoice = input("Would you like to read a file or write to a file?\nType r to read, or type w to write. ")
+  logger.debug('readWriteChoice user Input = ' + readWriteChoice, extra={'userInput': readWriteChoice})
   if readWriteChoice is 'r':
     readFile()
   elif readWriteChoice is 'w':
@@ -79,5 +80,6 @@ def readOrWritePrompt():
   else: 
     print("I'm sorry, but you must select w or r to move forward with this program.  Try starting the program over.")
 
-
+logger.info('program started')
 readOrWritePrompt()      
+logger.info('program finished')
