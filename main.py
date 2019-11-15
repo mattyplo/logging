@@ -1,3 +1,7 @@
+import logging
+logging.basicConfig()
+logger = logging.getLogger(__name__)
+
 def countImperdietInSentence(sentence):
   count = 0
   wordsInSentence = sentence.split()
@@ -26,7 +30,7 @@ def outputImperdietCounts(imperdietCounts):
   print("number of times imperdiet appears: ", imperdietCounts["numImperdietInFile"])  
   
 def readFile():
-  
+  logger.critical("reading file")
   fileSource = input("What is the destination of the file you'd like to read?")
   file = open(fileSource, "r")
   fileText = file.read()
@@ -63,3 +67,4 @@ def readOrWritePrompt():
 
 
 readOrWritePrompt()      
+logger.critical('program executed')
