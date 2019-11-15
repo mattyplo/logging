@@ -2,8 +2,16 @@ import logging
 
 # Initialize logger
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
-logging.basicConfig(format=logFormatter, level=logging.DEBUG, filename="consoleapp.log")
+DEBUG_LEVELV_NUM = 5
+logging.addLevelName(DEBUG_LEVELV_NUM, "TRACE")
+def trace(self, message, *args, **kws):
+    if self.isEnabledFor(DEBUG_LEVELV_NUM):
+        # Yes, logger takes its '*args' as 'args'.
+        self._log(DEBUG_LEVELV_NUM, message, args, **kws) 
+logging.Logger.trace = trace
+logging.basicConfig(format=logFormatter, level=5, filename="consoleapp.log")
 logger = logging.getLogger(__name__)
+
 
 # Handler
 #handler = logging.FileHandler('logs/myLogs.log')
@@ -86,6 +94,7 @@ def readOrWritePrompt():
     logger.error('readWriteChoice is not an r or w')
     print("I'm sorry, but you must select w or r to move forward with this program.  Try starting the program over.")
 
+logger.trace('trace')
 logger.info('program started')
 readOrWritePrompt()      
 logger.info('program finished')
