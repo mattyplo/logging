@@ -1,7 +1,12 @@
 import logging
+
+# Initialize logger
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
 logging.basicConfig(format=logFormatter, level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+handler = logging.FileHandler('logs/myLogs.log')
+handler.setLevel(logging.DEBUG)
+logger.addHandler(handler)
 
 def countImperdietInSentence(sentence):
   count = 0
@@ -31,12 +36,18 @@ def outputImperdietCounts(imperdietCounts):
   print("number of times imperdiet appears: ", imperdietCounts["numImperdietInFile"])  
   
 def readFile():
+  # Logger
+  logger.debug('readFile Function', extra={'input': ''})
   
+  # Function code
   fileSource = input("What is the destination of the file you'd like to read?")
   file = open(fileSource, "r")
   fileText = file.read()
   imperdietCounts = getImperdietCounts(fileText)
   outputImperdietCounts(imperdietCounts)
+  
+  #Logger
+  logger.debug('readFile Function', extra={'output': ''})
   
 def getNumSentencesInFile(text):
   sentences = text.split(".")
