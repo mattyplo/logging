@@ -2,11 +2,13 @@ import logging
 
 # Initialize logger
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
-logging.basicConfig(format=logFormatter, level=logging.DEBUG)
+logging.basicConfig(format=logFormatter, level=logging.DEBUG, filename="logs/myLog.log")
 logger = logging.getLogger(__name__)
-handler = logging.FileHandler('logs/myLogs.log')
-handler.setLevel(logging.DEBUG)
-logger.addHandler(handler)
+
+# Handler
+#handler = logging.FileHandler('logs/myLogs.log')
+#handler.setLevel(logging.DEBUG)
+#logger.addHandler(handler)
 
 def countImperdietInSentence(sentence):
   count = 0
