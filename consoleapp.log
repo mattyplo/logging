@@ -1,0 +1,6 @@
+2019-11-15 10:28:41,099 - INFO - program started
+2019-11-15 10:28:43,557 - DEBUG - readWriteChoice user Input = r
+2019-11-15 10:28:43,557 - DEBUG - readFile Function
+2019-11-15 10:28:44,949 - CRITICAL - file does not exist.  System output: [Errno 2] No such file or directory: 'asdf'
+2019-11-15 10:28:44,949 - DEBUG - readFile Function
+2019-11-15 10:28:44,949 - INFO - program finished

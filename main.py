@@ -2,7 +2,7 @@ import logging
 
 # Initialize logger
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
-logging.basicConfig(format=logFormatter, level=logging.DEBUG, filename="logs/myLog.log")
+logging.basicConfig(format=logFormatter, level=logging.DEBUG, filename="consoleapp.log")
 logger = logging.getLogger(__name__)
 
 # Handler
@@ -43,10 +43,15 @@ def readFile():
   
   # Function code
   fileSource = input("What is the destination of the file you'd like to read?")
-  file = open(fileSource, "r")
-  fileText = file.read()
-  imperdietCounts = getImperdietCounts(fileText)
-  outputImperdietCounts(imperdietCounts)
+  
+  try:
+    file = open(fileSource, "r")
+    fileText = file.read()
+    imperdietCounts = getImperdietCounts(fileText)
+    outputImperdietCounts(imperdietCounts)
+  
+  except IOError as e:
+    logging.critical('file does not exist.  System output: ' + str(e))
   
   #Logger
   logger.debug('readFile Function', extra={'output': ''})
