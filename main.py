@@ -78,6 +78,7 @@ def readOrWritePrompt():
   elif readWriteChoice is 'w':
     writeFile()
   else: 
+    logger.error('readWriteChoice is not an r or w')
     print("I'm sorry, but you must select w or r to move forward with this program.  Try starting the program over.")
 
 logger.info('program started')
