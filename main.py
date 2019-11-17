@@ -1,5 +1,6 @@
 import logging
 import time
+import datetime
 
 # Initialize logger
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
@@ -95,8 +96,9 @@ def readOrWritePrompt():
     logger.error('readWriteChoice is not an r or w')
     print("I'm sorry, but you must select w or r to move forward with this program.  Try starting the program over.")
 
-logger.trace('trace')
+
 logger.info('program started')
+logger.trace('trace')
 startTime = time.time()
 
 readOrWritePrompt()      
@@ -105,14 +107,36 @@ endTime = time.time()
 executionTime = endTime - startTime
 print("--- %s seconds ---" % executionTime)
 
-def generateMetrics():
-  # Get log of most recent app iteration
+def getMostRecentLogRun():
   logFile = open('consoleapp.log', "r")
   logText = logFile.read()
   logsList = logText.split('program finished')
   mostRecentLog = logsList[-2]
   mostRecentLogList = mostRecentLog.split('\n')
   del mostRecentLogList[0]
-  print(mostRecentLogList)
+  return mostRecentLogList
+
+def timestamp_to_milliseconds(timestamp):
+    hours, minutes, seconds, milliseconds = [int(x) for x in timestamp.replace(',', ':').split(':')]
+    return milliseconds + 1000 * (seconds + 60 * (minutes + 60 * hours))
+
+def convertLogTime(logTime):
+  logDateTime = logTime.split("- INFO -")[0]
+  logDateTime = logDateTime[:-1]
+  logTimeDateList = logDateTime.split(" ")
+  time = logTimeDateList[1]
+  logTimeMilliseconds = timestamp_to_milliseconds(time)
+  return logTimeMilliseconds
+  
+def generateMetrics():
+  # determine runtime
+  currentLogList = getMostRecentLogRun()
+  startEntry = currentLogList[0]
+  finishEntry = currentLogList[-1]
+  startMilli = convertLogTime(startEntry)
+  finishMilli = convertLogTime(finishEntry)
+  runTime = finishMilli - startMilli
+
+  print(runTime)
   
 generateMetrics()
