@@ -1,4 +1,5 @@
 import logging
+import time
 
 # Initialize logger
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
@@ -96,5 +97,10 @@ def readOrWritePrompt():
 
 logger.trace('trace')
 logger.info('program started')
+startTime = time.time()
+
 readOrWritePrompt()      
 logger.info('program finished')
+endTime = time.time()
+executionTime = endTime - startTime
+print("--- %s seconds ---" % executionTime)

@@ -32,3 +32,10 @@
 2019-11-15 10:50:16,952 - DEBUG - readFile Function
 2019-11-15 10:50:21,430 - DEBUG - readFile Function
 2019-11-15 10:50:21,431 - INFO - program finished
+2019-11-17 10:57:57,333 - TRACE - trace
+2019-11-17 10:57:57,334 - INFO - program started
+2019-11-17 10:57:58,490 - DEBUG - readWriteChoice user Input = r
+2019-11-17 10:57:58,490 - DEBUG - readFile Function
+2019-11-17 10:58:04,981 - CRITICAL - file does not exist.  System output: [Errno 2] No such file or directory: 'loremIpsum.py'
+2019-11-17 10:58:04,981 - DEBUG - readFile Function
+2019-11-17 10:58:04,981 - INFO - program finished
