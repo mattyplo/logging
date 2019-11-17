@@ -128,14 +128,18 @@ def convertLogTime(logTime):
   logTimeMilliseconds = timestamp_to_milliseconds(time)
   return logTimeMilliseconds
   
-def generateMetrics():
-  # determine runtime
-  currentLogList = getMostRecentLogRun()
+def calculateExecutionTime(currentLogList):
   startEntry = currentLogList[0]
   finishEntry = currentLogList[-1]
   startMilli = convertLogTime(startEntry)
   finishMilli = convertLogTime(finishEntry)
   runTime = finishMilli - startMilli
+  return runTime
+
+def generateMetrics():
+  # determine runtime
+  currentLogList = getMostRecentLogRun()
+  runTime = calculateExecutionTime(currentLogList)
 
   print(runTime)
   

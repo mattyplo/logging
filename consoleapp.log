@@ -225,3 +225,9 @@
 2019-11-17 12:04:04,298 - DEBUG - readFile Function
 2019-11-17 12:04:06,889 - DEBUG - readFile Function
 2019-11-17 12:04:06,889 - INFO - program finished
+2019-11-17 12:07:57,613 - INFO - program started
+2019-11-17 12:07:57,613 - TRACE - trace
+2019-11-17 12:07:58,620 - DEBUG - readWriteChoice user Input = r
+2019-11-17 12:07:58,620 - DEBUG - readFile Function
+2019-11-17 12:08:03,444 - DEBUG - readFile Function
+2019-11-17 12:08:03,444 - INFO - program finished
