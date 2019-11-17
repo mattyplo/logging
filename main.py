@@ -104,3 +104,15 @@ logger.info('program finished')
 endTime = time.time()
 executionTime = endTime - startTime
 print("--- %s seconds ---" % executionTime)
+
+def generateMetrics():
+  # Get log of most recent app iteration
+  logFile = open('consoleapp.log', "r")
+  logText = logFile.read()
+  logsList = logText.split('program finished')
+  mostRecentLog = logsList[-2]
+  mostRecentLogList = mostRecentLog.split('\n')
+  del mostRecentLogList[0]
+  print(mostRecentLogList)
+  
+generateMetrics()

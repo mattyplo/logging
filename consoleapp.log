@@ -39,3 +39,69 @@
 2019-11-17 10:58:04,981 - CRITICAL - file does not exist.  System output: [Errno 2] No such file or directory: 'loremIpsum.py'
 2019-11-17 10:58:04,981 - DEBUG - readFile Function
 2019-11-17 10:58:04,981 - INFO - program finished
+2019-11-17 11:10:35,658 - TRACE - trace
+2019-11-17 11:10:35,659 - INFO - program started
+2019-11-17 11:10:36,828 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:10:36,829 - DEBUG - readFile Function
+2019-11-17 11:10:42,106 - DEBUG - readFile Function
+2019-11-17 11:10:42,107 - INFO - program finished
+2019-11-17 11:11:26,005 - TRACE - trace
+2019-11-17 11:11:26,005 - INFO - program started
+2019-11-17 11:11:27,249 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:11:27,249 - DEBUG - readFile Function
+2019-11-17 11:11:34,095 - DEBUG - readFile Function
+2019-11-17 11:11:34,095 - INFO - program finished
+2019-11-17 11:14:02,489 - TRACE - trace
+2019-11-17 11:14:02,490 - INFO - program started
+2019-11-17 11:14:03,461 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:14:03,461 - DEBUG - readFile Function
+2019-11-17 11:14:06,463 - DEBUG - readFile Function
+2019-11-17 11:14:06,463 - INFO - program finished
+2019-11-17 11:14:27,184 - TRACE - trace
+2019-11-17 11:14:27,184 - INFO - program started
+2019-11-17 11:14:28,541 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:14:28,541 - DEBUG - readFile Function
+2019-11-17 11:14:31,031 - DEBUG - readFile Function
+2019-11-17 11:14:31,031 - INFO - program finished
+2019-11-17 11:15:47,374 - TRACE - trace
+2019-11-17 11:15:47,374 - INFO - program started
+2019-11-17 11:15:49,229 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:15:49,229 - DEBUG - readFile Function
+2019-11-17 11:15:52,084 - DEBUG - readFile Function
+2019-11-17 11:15:52,085 - INFO - program finished
+2019-11-17 11:16:36,030 - TRACE - trace
+2019-11-17 11:16:36,030 - INFO - program started
+2019-11-17 11:16:37,526 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:16:37,526 - DEBUG - readFile Function
+2019-11-17 11:16:41,718 - DEBUG - readFile Function
+2019-11-17 11:16:41,719 - INFO - program finished
+2019-11-17 11:18:14,166 - TRACE - trace
+2019-11-17 11:18:14,167 - INFO - program started
+2019-11-17 11:18:15,158 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:18:15,159 - DEBUG - readFile Function
+2019-11-17 11:18:18,763 - DEBUG - readFile Function
+2019-11-17 11:18:18,763 - INFO - program finished
+2019-11-17 11:19:03,140 - TRACE - trace
+2019-11-17 11:19:03,141 - INFO - program started
+2019-11-17 11:19:04,408 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:19:04,408 - DEBUG - readFile Function
+2019-11-17 11:19:07,191 - DEBUG - readFile Function
+2019-11-17 11:19:07,191 - INFO - program finished
+2019-11-17 11:19:56,861 - TRACE - trace
+2019-11-17 11:19:56,861 - INFO - program started
+2019-11-17 11:19:59,450 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:19:59,450 - DEBUG - readFile Function
+2019-11-17 11:20:01,923 - DEBUG - readFile Function
+2019-11-17 11:20:01,923 - INFO - program finished
+2019-11-17 11:20:25,997 - TRACE - trace
+2019-11-17 11:20:25,998 - INFO - program started
+2019-11-17 11:20:27,003 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:20:27,003 - DEBUG - readFile Function
+2019-11-17 11:20:29,528 - DEBUG - readFile Function
+2019-11-17 11:20:29,528 - INFO - program finished
+2019-11-17 11:21:00,531 - TRACE - trace
+2019-11-17 11:21:00,531 - INFO - program started
+2019-11-17 11:21:04,983 - DEBUG - readWriteChoice user Input = r
+2019-11-17 11:21:04,983 - DEBUG - readFile Function
+2019-11-17 11:21:07,631 - DEBUG - readFile Function
+2019-11-17 11:21:07,631 - INFO - program finished
