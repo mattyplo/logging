@@ -2,6 +2,8 @@ import logging
 import time
 import datetime
 
+############### READ WRITE PROGRAM ########################
+
 # Initialize logger
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
 DEBUG_LEVELV_NUM = 5
@@ -48,23 +50,29 @@ def outputImperdietCounts(imperdietCounts):
   print("number of times imperdiet appears: ", imperdietCounts["numImperdietInFile"])  
   
 def readFile():
-  # Logger
-  logger.debug('readFile Function', extra={'input': ''})
+  logger.debug("enter readFile() - No Args")
   
   # Function code
   fileSource = input("What is the destination of the file you'd like to read?")
+  logger.trace("fileSource variable assigned: " + fileSource)
   
   try:
+    logger.trace("enter try block")
     file = open(fileSource, "r")
+    logger.trace("file variable assigned to open: " + file.name)
     fileText = file.read()
+    logger.trace("fileText variable assigned contents of: " + file.name)
+    logger.trace("call imperdietCounts()")
     imperdietCounts = getImperdietCounts(fileText)
+    logger.trace("imperdietCounts Variable assigned: " + str(imperdietCounts))
+    logger.trace("call outputImperdietCounts()")
     outputImperdietCounts(imperdietCounts)
+    logger.trace("exit try block")
   
   except IOError as e:
-    logging.critical('file does not exist.  System output: ' + str(e))
+    logger.critical('file does not exist.  System output: ' + str(e))
   
-  #Logger
-  logger.debug('readFile Function', extra={'output': ''})
+  logger.debug('exit readFile() - No Return')
   
 def getNumSentencesInFile(text):
   sentences = text.split(".")
@@ -85,12 +93,16 @@ def writeFile():
   
   
 def readOrWritePrompt():
-  
+  logger.debug("Enter readOrWritePrompt() - No Args")
   readWriteChoice = input("Would you like to read a file or write to a file?\nType r to read, or type w to write. ")
-  logger.debug('readWriteChoice user Input = ' + readWriteChoice, extra={'userInput': readWriteChoice})
+  logger.trace("readWriteChoice variable assigned: " + readWriteChoice)
   if readWriteChoice is 'r':
+    logger.info("program mode = read")
+    logger.trace("call readFile()")
     readFile()
   elif readWriteChoice is 'w':
+    logger.info("program mode = write")
+    logger.trace("call writeFile()")
     writeFile()
   else: 
     logger.error('readWriteChoice is not an r or w')
@@ -98,14 +110,15 @@ def readOrWritePrompt():
 
 
 logger.info('program started')
-logger.trace('trace')
-startTime = time.time()
-
+#startTime = time.time()
+logger.trace('call readOrWritePrompt()')
 readOrWritePrompt()      
 logger.info('program finished')
-endTime = time.time()
-executionTime = endTime - startTime
-print("--- %s seconds ---" % executionTime)
+#endTime = time.time()
+#executionTime = endTime - startTime
+#print("--- %s seconds ---" % executionTime)
+
+############## PERFORMANCE METRICS #############################
 
 def getMostRecentLogRun():
   logFile = open('consoleapp.log', "r")
