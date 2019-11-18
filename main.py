@@ -2,9 +2,8 @@ import logging
 import time
 import datetime
 
-############### READ WRITE PROGRAM ########################
 
-# Initialize logger
+############### INITIALIZE LOGGER ########################
 logFormatter = '%(asctime)s - %(levelname)s - %(message)s'
 DEBUG_LEVELV_NUM = 5
 logging.addLevelName(DEBUG_LEVELV_NUM, "TRACE")
@@ -13,28 +12,29 @@ def trace(self, message, *args, **kws):
         # Yes, logger takes its '*args' as 'args'.
         self._log(DEBUG_LEVELV_NUM, message, args, **kws) 
 logging.Logger.trace = trace
-logging.basicConfig(format=logFormatter, level=5, filename="consoleapp.log")
+logging.basicConfig(format=logFormatter, level=5, filename="consoleapp.log", filemode="w")
 logger = logging.getLogger(__name__)
 
 
-# Handler
-#handler = logging.FileHandler('logs/myLogs.log')
-#handler.setLevel(logging.DEBUG)
-#logger.addHandler(handler)
+############### READ WRITE PROGRAM ########################
 
 def countImperdietInSentence(sentence):
+  logger.debug("enter countImperdietInSentence() - Args: " + sentence)
   count = 0
+  logger.trace("count variable assigned: " + str(count))
   wordsInSentence = sentence.split()
+  logger.trace("wordsInSentence variable assigned: " + str(wordsInSentence))
+  logger.trace("enter for loop: each word in wordsInSentence")
   for word in wordsInSentence:
     if word == "imperdiet":
+      logger.trace("Entered if word == 'imperdiet' statement")
       count += 1
+      logger.trace("count variable assigned: " + str(count))
+  logger.debug("exit count ImperdietInSentence() - return: " + str(count))
   return count
 
-def imperdietIsInSentence(count):
-  return count > 0
-
 def getImperdietCounts(file):
-  logger.debug("enter getImperdietCounts() - file contents")
+  logger.debug("enter getImperdietCounts() - Args: file contents")
   sentences = file.split(".")
   logger.trace("sentences variable assigned by splitting file contents by .")
   numLinesWithImperdiet = 0
@@ -59,8 +59,12 @@ def getImperdietCounts(file):
   return imperdietCounts
   
 def outputImperdietCounts(imperdietCounts):
+  logger.debug("enter outputImperdietCounts() - Args: " + str(imperdietCounts))
+  logger.trace("print statement: 'number of lines with imperdiet: ', imperdietCounts['numLinesWithImperdiet']")
   print("number of lines with imperdiet: ", imperdietCounts["numLinesWithImperdiet"])
+  logger.trace("print statement: 'number of times imperdiet appears: ', imperdietCounts['numImperdietInFile']")
   print("number of times imperdiet appears: ", imperdietCounts["numImperdietInFile"])  
+  logger.debug("exit outputImperdietCounts() - No Return")
   
 def readFile():
   logger.debug("enter readFile() - No Args")
