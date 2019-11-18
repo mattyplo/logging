@@ -68,8 +68,6 @@ def outputImperdietCounts(imperdietCounts):
   
 def readFile():
   logger.debug("enter readFile() - No Args")
-  
-  # Function code
   fileSource = input("What is the destination of the file you'd like to read?")
   logger.trace("fileSource variable assigned: " + fileSource)
   
@@ -82,6 +80,7 @@ def readFile():
     logger.trace("call imperdietCounts()")
     imperdietCounts = getImperdietCounts(fileText)
     logger.trace("imperdietCounts Variable assigned: " + str(imperdietCounts))
+    logger.info("Presenting results.")
     logger.trace("call outputImperdietCounts()")
     outputImperdietCounts(imperdietCounts)
     logger.trace("exit try block")
@@ -92,27 +91,50 @@ def readFile():
   logger.debug('exit readFile() - No Return')
   
 def getNumSentencesInFile(text):
+  logger.debug("enter getNumSentencesInFile() - Args: " + text)
   sentences = text.split(".")
+  logger.trace("sentences variable assigned by splitting text variable contents by .")
   # must subtract one from length of sentences, since the split occurs before and after the period.  The last split will be empty text, which isn't a sentence.
   numSentences = len(sentences) - 1
+  logger.trace("numSentences variable assigned: " + str(numSentences))
+  logger.debug("exit getNumSentencesInFile - Return: " + str(numSentences))
   return numSentences
 
 def writeFile():
-  
+  logger.debug("enter writeFile() - No Args")
   fileSource = input("What is the destination of the file you'd like to write to?")
-  file = open(fileSource, "w")
-  userSentences = input("Type senetences.  When your heart is content hit return to submit your sentences.")
-  file.write(userSentences)
-  numSentences = getNumSentencesInFile(userSentences)
-  imperdietCounts = getImperdietCounts(userSentences)
-  outputImperdietCounts(imperdietCounts)
-  print("The number of sentences your wrote is: ", numSentences)
+  logger.trace("fileSource variable assigned: " + fileSource)
   
+  try:
+    logger.trace("enter try block")
+    file = open(fileSource, "w")
+    logger.trace("file variable assigned to open: " + file.name)
+    userSentences = input("Type senetences.  When your heart is content hit return to submit your sentences.")
+    logger.trace("userSentences variable assigned: " + userSentences)
+    file.write(userSentences)
+    logger.trace("write userSentences variable to file")
+    logger.trace("call getNumSentencesInFile()")
+    numSentences = getNumSentencesInFile(userSentences)
+    logger.trace("numSentences variable assigned" + str(numSentences))
+    logger.trace("call getImperdietCounts()")
+    imperdietCounts = getImperdietCounts(userSentences)
+    logger.trace("imperdietCounts Variable assigned: " + str(imperdietCounts))
+    logger.info("Presenting results.")
+    logger.trace("call outputImperdietCounts()")
+    outputImperdietCounts(imperdietCounts)
+    logger.trace("print statement: 'The number of sentences you wrote is: ', numSentences")
+    print("The number of sentences you wrote is: ", numSentences)
+  
+  except IOError as e:
+    logger.critical('cannot assign empty string as file destination: ' + str(e))
+  
+  logger.debug("exit writeFile() - No Args")
   
 def readOrWritePrompt():
-  logger.debug("Enter readOrWritePrompt() - No Args")
+  logger.debug("enter readOrWritePrompt() - No Args")
   readWriteChoice = input("Would you like to read a file or write to a file?\nType r to read, or type w to write. ")
   logger.trace("readWriteChoice variable assigned: " + readWriteChoice)
+  
   if readWriteChoice is 'r':
     logger.info("program mode = read")
     logger.trace("call readFile()")
@@ -124,8 +146,10 @@ def readOrWritePrompt():
   else: 
     logger.error('readWriteChoice is not an r or w')
     print("I'm sorry, but you must select w or r to move forward with this program.  Try starting the program over.")
-
-
+    
+  logger.debug("exit readOrWritePrompt() - No Return")
+    
+    
 logger.info('program started')
 #startTime = time.time()
 logger.trace('call readOrWritePrompt()')
