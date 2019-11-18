@@ -34,15 +34,28 @@ def imperdietIsInSentence(count):
   return count > 0
 
 def getImperdietCounts(file):
+  logger.debug("enter getImperdietCounts() - file contents")
   sentences = file.split(".")
+  logger.trace("sentences variable assigned by splitting file contents by .")
   numLinesWithImperdiet = 0
+  logger.trace("numLinesWithImperdiet variable assigned: " + str(numLinesWithImperdiet))
   numImperdietInFile = 0
+  logger.trace("numImperdietInFile variable assigned: " + str(numImperdietInFile))
+  logger.trace("enter for loop: each sentence in sentences")
   for sentence in sentences:
+    logger.trace("call numImperdietInSentence()")
     numImperdietInSentence = countImperdietInSentence(sentence)
+    logger.trace("numImperdietInSentence variable assigned: " + str(numImperdietInSentence))
     numImperdietInFile += numImperdietInSentence
+    logger.trace("numImperdietInFile varaible assigned: " + str(numImperdietInFile))
     if numImperdietInSentence > 0:
+      logger.trace("Entered if numperdietInSentence > 0 statement")
       numLinesWithImperdiet += 1
+      logger.trace("numLinesWithImperdiet variable assigned: " + str(numLinesWithImperdiet))
+  logger.trace("exit for loop")
   imperdietCounts = {"numLinesWithImperdiet": numLinesWithImperdiet, "numImperdietInFile": numImperdietInFile}
+  logger.trace("imperdietCounts variable assigned: " + str(imperdietCounts))
+  logger.debug("exit getImperdietCounts() - return: " + str(imperdietCounts))
   return imperdietCounts
   
 def outputImperdietCounts(imperdietCounts):
