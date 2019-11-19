@@ -1,46 +1,46 @@
-2019-11-19 11:53:47,658 - INFO - program started
-2019-11-19 11:53:47,659 - TRACE - call readOrWritePrompt()
-2019-11-19 11:53:47,659 - DEBUG - enter readOrWritePrompt() - No Args
-2019-11-19 11:53:48,238 - TRACE - readWriteChoice variable assigned: w
-2019-11-19 11:53:48,238 - INFO - program mode = write
-2019-11-19 11:53:48,238 - TRACE - call writeFile()
-2019-11-19 11:53:48,238 - DEBUG - enter writeFile() - No Args
-2019-11-19 11:53:51,033 - TRACE - fileSource variable assigned: MyIpsum.txt
-2019-11-19 11:53:51,033 - TRACE - enter try block
-2019-11-19 11:53:51,033 - TRACE - file variable assigned to open: MyIpsum.txt
-2019-11-19 11:53:51,947 - TRACE - userSentences variable assigned: blah
-2019-11-19 11:53:51,947 - TRACE - write userSentences variable to file
-2019-11-19 11:53:51,947 - TRACE - call getNumSentencesInFile()
-2019-11-19 11:53:51,947 - DEBUG - enter getNumSentencesInFile() - Args: blah
-2019-11-19 11:53:51,947 - TRACE - sentences variable assigned by splitting text variable contents by .
-2019-11-19 11:53:51,947 - TRACE - numSentences variable assigned: 0
-2019-11-19 11:53:51,947 - DEBUG - exit getNumSentencesInFile - Return: 0
-2019-11-19 11:53:51,948 - TRACE - numSentences variable assigned0
-2019-11-19 11:53:51,948 - TRACE - call getImperdietCounts()
-2019-11-19 11:53:51,948 - DEBUG - enter getImperdietCounts() - Args: file contents
-2019-11-19 11:53:51,948 - TRACE - sentences variable assigned by splitting file contents by .
-2019-11-19 11:53:51,948 - TRACE - numLinesWithImperdiet variable assigned: 0
-2019-11-19 11:53:51,948 - TRACE - numImperdietInFile variable assigned: 0
-2019-11-19 11:53:51,948 - TRACE - enter for loop: each sentence in sentences
-2019-11-19 11:53:51,948 - TRACE - call countImperdietInSentence()
-2019-11-19 11:53:51,948 - DEBUG - enter countImperdietInSentence() - Args: blah
-2019-11-19 11:53:51,948 - TRACE - count variable assigned: 0
-2019-11-19 11:53:51,948 - TRACE - wordsInSentence variable assigned: ['blah']
-2019-11-19 11:53:51,948 - TRACE - enter for loop: each word in wordsInSentence
-2019-11-19 11:53:51,949 - DEBUG - exit countImperdietInSentence() - return: 0
-2019-11-19 11:53:51,949 - TRACE - numImperdietInSentence variable assigned: 0
-2019-11-19 11:53:51,949 - TRACE - numImperdietInFile varaible assigned: 0
-2019-11-19 11:53:51,949 - TRACE - exit for loop
-2019-11-19 11:53:51,949 - TRACE - imperdietCounts variable assigned: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
-2019-11-19 11:53:51,949 - DEBUG - exit getImperdietCounts() - return: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
-2019-11-19 11:53:51,949 - TRACE - imperdietCounts Variable assigned: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
-2019-11-19 11:53:51,949 - INFO - Presenting results.
-2019-11-19 11:53:51,949 - TRACE - call outputImperdietCounts()
-2019-11-19 11:53:51,949 - DEBUG - enter outputImperdietCounts() - Args: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
-2019-11-19 11:53:51,949 - TRACE - print statement: 'number of lines with imperdiet: ', imperdietCounts['numLinesWithImperdiet']
-2019-11-19 11:53:51,949 - TRACE - print statement: 'number of times imperdiet appears: ', imperdietCounts['numImperdietInFile']
-2019-11-19 11:53:51,950 - DEBUG - exit outputImperdietCounts() - No Return
-2019-11-19 11:53:51,950 - TRACE - print statement: 'The number of sentences you wrote is: ', numSentences
-2019-11-19 11:53:51,950 - DEBUG - exit writeFile() - No Args
-2019-11-19 11:53:51,950 - DEBUG - exit readOrWritePrompt() - No Return
-2019-11-19 11:53:51,950 - INFO - program finished
+2019-11-19 12:04:16,841 - INFO - program started
+2019-11-19 12:04:16,841 - TRACE - call readOrWritePrompt()
+2019-11-19 12:04:16,841 - DEBUG - enter readOrWritePrompt() - No Args
+2019-11-19 12:04:17,941 - TRACE - readWriteChoice variable assigned: w
+2019-11-19 12:04:17,941 - INFO - program mode = write
+2019-11-19 12:04:17,941 - TRACE - call writeFile()
+2019-11-19 12:04:17,941 - DEBUG - enter writeFile() - No Args
+2019-11-19 12:04:20,986 - TRACE - fileSource variable assigned: MyIpsum.txt
+2019-11-19 12:04:20,987 - TRACE - enter try block
+2019-11-19 12:04:20,987 - TRACE - file variable assigned to open: MyIpsum.txt
+2019-11-19 12:04:23,124 - TRACE - userSentences variable assigned: blah
+2019-11-19 12:04:23,124 - TRACE - write userSentences variable to file
+2019-11-19 12:04:23,124 - TRACE - call getNumSentencesInFile()
+2019-11-19 12:04:23,124 - DEBUG - enter getNumSentencesInFile() - Args: blah
+2019-11-19 12:04:23,124 - TRACE - sentences variable assigned by splitting text variable contents by .
+2019-11-19 12:04:23,124 - TRACE - numSentences variable assigned: 0
+2019-11-19 12:04:23,124 - DEBUG - exit getNumSentencesInFile - Return: 0
+2019-11-19 12:04:23,125 - TRACE - numSentences variable assigned0
+2019-11-19 12:04:23,125 - TRACE - call getImperdietCounts()
+2019-11-19 12:04:23,125 - DEBUG - enter getImperdietCounts() - Args: file contents
+2019-11-19 12:04:23,125 - TRACE - sentences variable assigned by splitting file contents by .
+2019-11-19 12:04:23,125 - TRACE - numLinesWithImperdiet variable assigned: 0
+2019-11-19 12:04:23,125 - TRACE - numImperdietInFile variable assigned: 0
+2019-11-19 12:04:23,125 - TRACE - enter for loop: each sentence in sentences
+2019-11-19 12:04:23,125 - TRACE - call countImperdietInSentence()
+2019-11-19 12:04:23,125 - DEBUG - enter countImperdietInSentence() - Args: blah
+2019-11-19 12:04:23,125 - TRACE - count variable assigned: 0
+2019-11-19 12:04:23,125 - TRACE - wordsInSentence variable assigned: ['blah']
+2019-11-19 12:04:23,125 - TRACE - enter for loop: each word in wordsInSentence
+2019-11-19 12:04:23,125 - DEBUG - exit countImperdietInSentence() - return: 0
+2019-11-19 12:04:23,125 - TRACE - numImperdietInSentence variable assigned: 0
+2019-11-19 12:04:23,125 - TRACE - numImperdietInFile varaible assigned: 0
+2019-11-19 12:04:23,125 - TRACE - exit for loop
+2019-11-19 12:04:23,126 - TRACE - imperdietCounts variable assigned: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
+2019-11-19 12:04:23,126 - DEBUG - exit getImperdietCounts() - return: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
+2019-11-19 12:04:23,126 - TRACE - imperdietCounts Variable assigned: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
+2019-11-19 12:04:23,126 - INFO - Presenting results.
+2019-11-19 12:04:23,126 - TRACE - call outputImperdietCounts()
+2019-11-19 12:04:23,126 - DEBUG - enter outputImperdietCounts() - Args: {'numLinesWithImperdiet': 0, 'numImperdietInFile': 0}
+2019-11-19 12:04:23,126 - TRACE - print statement: 'number of lines with imperdiet: ', imperdietCounts['numLinesWithImperdiet']
+2019-11-19 12:04:23,126 - TRACE - print statement: 'number of times imperdiet appears: ', imperdietCounts['numImperdietInFile']
+2019-11-19 12:04:23,126 - DEBUG - exit outputImperdietCounts() - No Return
+2019-11-19 12:04:23,126 - TRACE - print statement: 'The number of sentences you wrote is: ', numSentences
+2019-11-19 12:04:23,126 - DEBUG - exit writeFile() - No Args
+2019-11-19 12:04:23,127 - DEBUG - exit readOrWritePrompt() - No Return
+2019-11-19 12:04:23,127 - INFO - program finished

@@ -259,10 +259,15 @@ def getReadWriteMode():
 def calcAvgLineWriteTime():
   logFile = open('consoleapp.log', "r")
   logText = logFile.read()
-  logTextList = logText.split('TRACE - file variable assigned to open:')
-  writeStartTime = logTextList[0].split('\n')[-1]
-  logTextList = logText.split('TRACE - write userSentences variable to file')
-  writeFinishTime = logTextList[0].split('\n')[-1]
+  logTextList = logText.split('- TRACE - file variable assigned to open:')
+  writeStartTimeLine = logTextList[0].split('\n')[-1]
+  writeStartTime = writeStartTimeLine.split(' ')[1].strip()
+  writeStartTime = timestamp_to_milliseconds(writeStartTime)
+  logTextList = logText.split('- TRACE - write userSentences variable to file')
+  writeFinishTimeLine = logTextList[0].split('\n')[-1]
+  writeFinishTime = writeFinishTimeLine.split(' ')[1].strip()
+  writeFinishTime = timestamp_to_milliseconds(writeFinishTime)
+  
   print(writeStartTime)
   print(writeFinishTime)
   
