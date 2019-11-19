@@ -247,14 +247,43 @@ def calcAvgTime2FindImperdiet():
   avgTimeToFindImperdiet = timeToReadAllLines / numImperdietInFile
   return avgTimeToFindImperdiet
   
+def getReadWriteMode():
+  logFile = open('consoleapp.log', "r")
+  logText = logFile.read()
+  logTextList = logText.split('readWriteChoice variable assigned:') 
+  logTextList.pop(0)
+  readWriteMode = logTextList[0].split('\n')[0]
+  readWriteMode = readWriteMode.strip()
+  return readWriteMode
+  
+def calcAvgLineWriteTime():
+  logFile = open('consoleapp.log', "r")
+  logText = logFile.read()
+  logTextList = logText.split('TRACE - file variable assigned to open:')
+  writeStartTime = logTextList[0].split('\n')[-1]
+  logTextList = logText.split('TRACE - write userSentences variable to file')
+  writeFinishTime = logTextList[0].split('\n')[-1]
+  print(writeStartTime)
+  print(writeFinishTime)
+  
 def generateMetrics():
   # determine runtime
   # time is in milliseconds
   currentLogList = getMostRecentLogRun()
+  readWriteMode = getReadWriteMode()
   runTime = calculateExecutionTime(currentLogList)
-  avgTimeToReadLine = calculateAverageLineReadTime()
-  avgTimeToFindImperdiet = calcAvgTime2FindImperdiet()
+  if readWriteMode is 'r':
+    avgTimeToReadLine = calculateAverageLineReadTime()
+    avgTimeToFindImperdiet = calcAvgTime2FindImperdiet()
+    print("Time to execute program: " + str(runTime) + " milliseconds")
+    print("Average time to read a line: " + str(avgTimeToReadLine) + " milliseconds") 
+    print("Average time to find Imperdiet in a line: " + str(avgTimeToFindImperdiet) + " milliseconds")
+    
+  elif readWriteMode is 'w':
+    calcAvgLineWriteTime()
+    print(readWriteMode)
+    
+  runTime = calculateExecutionTime(currentLogList)
   
-  print(runTime)
   
 generateMetrics()
