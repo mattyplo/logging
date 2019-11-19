@@ -190,9 +190,7 @@ def calculateExecutionTime(currentLogList):
   runTime = finishMilli - startMilli
   return runTime
 
-def calculateAverageLineReadTime(currentLogList):
-  #countImperdietEntries = currentLogList.split("enter countImperdietInSentence")
-  #print(str(currentLogList))
+def calcTimeToReadAllLines():
   logFile = open('consoleapp.log', "r")
   logText = logFile.read()
   logTextList = logText.split('call countImperdietInSentence()')
@@ -202,17 +200,28 @@ def calculateAverageLineReadTime(currentLogList):
   # Calculate time of first line read
   startTime = convertLogTime(logTextList[0], '- DEBUG -')
   # Calculate time of last line read finished.
-  print(logTextList[-1])
   exitTime = 0
   lastEntryByLine = logTextList[-1].split('\n')
   for line in lastEntryByLine:
-    print(line)
     lineContainsExit = line.find("exit countImperdietInSentence()")
     if lineContainsExit > 0:
       exitTime = convertLogTime(line, '- DEBUG ')
   
   # Calculate time between first line read and last line read finished
   timeToReadAllLines = exitTime - startTime
+  return timeToReadAllLines
+
+def calculateAverageLineReadTime():
+  #countImperdietEntries = currentLogList.split("enter countImperdietInSentence")
+  #print(str(currentLogList))
+  logFile = open('consoleapp.log', "r")
+  logText = logFile.read()
+  logTextList = logText.split('call countImperdietInSentence()')
+  # remove first entry from list, it is the precursor to the inside of the first method call.
+  logTextList.pop(0)
+  
+  # Calculate time between first line read and last line read finished
+  timeToReadAllLines = calcTimeToReadAllLines()
   
   # Divided time between by number of lines for average time to read a line
   numberOfLines = len(logTextList)
@@ -221,22 +230,30 @@ def calculateAverageLineReadTime(currentLogList):
   return avgTimeToReadLine
   
   
+def calcNumImperdietInFile():
+  logFile = open('consoleapp.log', "r")
+  logText = logFile.read()
+  logTextList = logText.split('call outputImperdietCounts()') 
+  logTextList.pop(0)
+  numImperdietInFile = logTextList[0].split("'numImperdietInFile':")
+  numImperdietInFile.pop(0)
+  numImperdiet = numImperdietInFile[0].split('}')
+  numImperdiet = numImperdiet[0].strip()
+  return int(numImperdiet)
   
-#  for line in logTextList:
-#    print(line)
-    #lineContainsImperdiet = line.find("enter countImperdietInSentence()")
-#    if lineContainsImperdiet > 0:
-#      print(line)
-#      print(lineNum)
-#      print(currentLogList[lineNum])
-#    lineNum = lineNum + 1
-  #print(logTextList)
-
+def calcAvgTime2FindImperdiet():
+  timeToReadAllLines = calcTimeToReadAllLines()
+  numImperdietInFile = calcNumImperdietInFile()
+  avgTimeToFindImperdiet = timeToReadAllLines / numImperdietInFile
+  return avgTimeToFindImperdiet
+  
 def generateMetrics():
   # determine runtime
+  # time is in milliseconds
   currentLogList = getMostRecentLogRun()
   runTime = calculateExecutionTime(currentLogList)
-  calculateAverageLineReadTime(currentLogList)
+  avgTimeToReadLine = calculateAverageLineReadTime()
+  avgTimeToFindImperdiet = calcAvgTime2FindImperdiet()
   
   print(runTime)
   
