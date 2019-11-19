@@ -122,7 +122,7 @@ def writeFile():
     logger.info("Presenting results.")
     logger.trace("call outputImperdietCounts()")
     outputImperdietCounts(imperdietCounts)
-    logger.trace("print statement: 'The number of sentences you wrote is: ', numSentences")
+    logger.trace("print statement: 'The number of sentences you wrote is: '" + str(numSentences))
     print("The number of sentences you wrote is: ", numSentences)
   
   except IOError as e:
@@ -255,8 +255,8 @@ def getReadWriteMode():
   readWriteMode = logTextList[0].split('\n')[0]
   readWriteMode = readWriteMode.strip()
   return readWriteMode
-  
-def calcAvgLineWriteTime():
+
+def calcTimeToWriteFile():
   logFile = open('consoleapp.log', "r")
   logText = logFile.read()
   logTextList = logText.split('- TRACE - file variable assigned to open:')
@@ -267,10 +267,19 @@ def calcAvgLineWriteTime():
   writeFinishTimeLine = logTextList[0].split('\n')[-1]
   writeFinishTime = writeFinishTimeLine.split(' ')[1].strip()
   writeFinishTime = timestamp_to_milliseconds(writeFinishTime)
+  timeToWriteFile = writeFinishTime - writeStartTime  
+  return timeToWriteFile
+
+def calcAvgLineWriteTime():
+  logFile = open('consoleapp.log', "r")
+  logText = logFile.read()
+  timeToWriteFile = calcTimeToWriteFile()
+  # find the number of lines in the file.
+  numLinesWritten = int(logText.split("- TRACE - print statement: 'The number of sentences you wrote is: '")[1].split("\n")[0])
+  avgTimeToWriteLine = timeToWriteFile / numLinesWritten
+  return avgTimeToWriteLine
   
-  print(writeStartTime)
-  print(writeFinishTime)
-  
+
 def generateMetrics():
   # determine runtime
   # time is in milliseconds
@@ -285,9 +294,8 @@ def generateMetrics():
     print("Average time to find Imperdiet in a line: " + str(avgTimeToFindImperdiet) + " milliseconds")
     
   elif readWriteMode is 'w':
-    calcAvgLineWriteTime()
-    print(readWriteMode)
-    
+    avgLineWriteTime = calcAvgLineWriteTime()
+    # calculate average time to find imperdiet in line.  
   runTime = calculateExecutionTime(currentLogList)
   
   
