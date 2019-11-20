@@ -155,6 +155,8 @@ logger.info('program started')
 logger.trace('call readOrWritePrompt()')
 readOrWritePrompt()      
 logger.info('program finished')
+
+
 #endTime = time.time()
 #executionTime = endTime - startTime
 #print("--- %s seconds ---" % executionTime)
@@ -279,7 +281,12 @@ def calcAvgLineWriteTime():
   avgTimeToWriteLine = timeToWriteFile / numLinesWritten
   return avgTimeToWriteLine
   
-
+def calcAvgTimeWriteImperdiet():
+  timeToWriteFile = calcTimeToWriteFile()
+  numImperdietInFile = calcNumImperdietInFile()
+  avgNumImperdietInFile = timeToWriteFile / numImperdietInFile
+  return avgNumImperdietInFile
+  
 def generateMetrics():
   # determine runtime
   # time is in milliseconds
@@ -291,12 +298,22 @@ def generateMetrics():
     avgTimeToFindImperdiet = calcAvgTime2FindImperdiet()
     print("Time to execute program: " + str(runTime) + " milliseconds")
     print("Average time to read a line: " + str(avgTimeToReadLine) + " milliseconds") 
-    print("Average time to find Imperdiet in a line: " + str(avgTimeToFindImperdiet) + " milliseconds")
+    print("Average time to find imperdiet in a line: " + str(avgTimeToFindImperdiet) + " milliseconds")
     
   elif readWriteMode is 'w':
     avgLineWriteTime = calcAvgLineWriteTime()
-    # calculate average time to find imperdiet in line.  
+    avgTime2FindImperdiet = calcAvgTimeWriteImperdiet()
+    print("Time to execute program: " + str(runTime) + " milliseconds")
+    print("The average time to write a line to file: " + str(avgLineWriteTime) + " milliseconds")
+    print("The average time to find imperdiet in a line: " + str(avgTime2FindImperdiet)+ " milliseconds")
+    
   runTime = calculateExecutionTime(currentLogList)
   
-  
-generateMetrics()
+##################### USER METRICS PROMPT ####################
+userInputReadMetrics = input("Do you want to see metrics for this program?  Type y for yes, or n for no. ")
+if userInputReadMetrics is 'y':
+  generateMetrics()
+elif userInputReadMetrics is 'n':
+  print("Goodbye")
+else:
+  print("That was not a valid response.  Goodbye.")
